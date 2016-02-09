@@ -1,0 +1,110 @@
+GCC(1)                                                  GNU                                                 GCC(1)
+
+
+
+NNAAMMEE
+       gcc - GNU project C and C++ compiler
+
+SSYYNNOOPPSSIISS
+       gcc [--cc|--SS|--EE] [--ssttdd==_s_t_a_n_d_a_r_d]
+           [--gg] [--ppgg] [--OO_l_e_v_e_l]
+           [--WW_w_a_r_n...] [--WWppeeddaannttiicc]
+           [--II_d_i_r...] [--LL_d_i_r...]
+           [--DD_m_a_c_r_o[=_d_e_f_n]...] [--UU_m_a_c_r_o]
+           [--ff_o_p_t_i_o_n...] [--mm_m_a_c_h_i_n_e_-_o_p_t_i_o_n...]
+           [--oo _o_u_t_f_i_l_e] [@_f_i_l_e] _i_n_f_i_l_e...
+
+       Only the most useful options are listed here; see below for the remainder.  gg++++ accepts mostly the same
+       options as ggcccc.
+
+DDEESSCCRRIIPPTTIIOONN
+       When you invoke GCC, it normally does preprocessing, compilation, assembly and linking.  The "overall
+       options" allow you to stop this process at an intermediate stage.  For example, the --cc option says not to
+       run the linker.  Then the output consists of object files output by the assembler.
+
+       Other options are passed on to one stage of processing.  Some options control the preprocessor and others
+       the compiler itself.  Yet other options control the assembler and linker; most of these are not documented
+       here, since you rarely need to use any of them.
+
+       Most of the command-line options that you can use with GCC are useful for C programs; when an option is
+       only useful with another language (usually C++), the explanation says so explicitly.  If the description
+       for a particular option does not mention a source language, you can use that option with all supported
+       languages.
+
+       The ggcccc program accepts options and file names as operands.  Many options have multi-letter names;
+       therefore multiple single-letter options may _n_o_t be grouped: --ddvv is very different from --dd --vv.
+
+       You can mix options and other arguments.  For the most part, the order you use doesn't matter.  Order does
+       matter when you use several options of the same kind; for example, if you specify --LL more than once, the
+       directories are searched in the order specified.  Also, the placement of the --ll option is significant.
+
+       Many options have long names starting with --ff or with --WW---for example, --ffmmoovvee--lloooopp--iinnvvaarriiaannttss, --WWffoorrmmaatt
+       and so on.  Most of these have both positive and negative forms; the negative form of --ffffoooo is --ffnnoo--ffoooo.
+       This manual documents only one of these two forms, whichever one is not the default.
+
+OOPPTTIIOONNSS
+   OOppttiioonn SSuummmmaarryy
+       Here is a summary of all the options, grouped by type.  Explanations are in the following sections.
+
+       _O_v_e_r_a_l_l _O_p_t_i_o_n_s
+           --cc  --SS  --EE  --oo _f_i_l_e  --nnoo--ccaannoonniiccaall--pprreeffiixxeess --ppiippee  --ppaassss--eexxiitt--ccooddeess --xx _l_a_n_g_u_a_g_e  --vv  --######
+           ----hheellpp[==_c_l_a_s_s[,,......]]  ----ttaarrggeett--hheellpp ----vveerrssiioonn --wwrraappppeerr @@_f_i_l_e --ffpplluuggiinn==_f_i_l_e --ffpplluuggiinn--aarrgg--_n_a_m_e==_a_r_g
+           --ffdduummpp--aaddaa--ssppeecc[--sslliimm] --ffaaddaa--ssppeecc--ppaarreenntt==_u_n_i_t --ffdduummpp--ggoo--ssppeecc==_f_i_l_e
+
+       _C _L_a_n_g_u_a_g_e _O_p_t_i_o_n_s
+           --aannssii  --ssttdd==_s_t_a_n_d_a_r_d  --ffggnnuu8899--iinnlliinnee --aauuxx--iinnffoo _f_i_l_e_n_a_m_e --ffaallllooww--ppaarraammeetteerrlleessss--vvaarriiaaddiicc--ffuunnccttiioonnss
+           --ffnnoo--aassmm  --ffnnoo--bbuuiillttiinn  --ffnnoo--bbuuiillttiinn--_f_u_n_c_t_i_o_n --ffhhoosstteedd  --ffffrreeeessttaannddiinngg --ffooppeennmmpp --ffmmss--eexxtteennssiioonnss
+           --ffppllaann99--eexxtteennssiioonnss --ttrriiggrraapphhss  --ttrraaddiittiioonnaall  --ttrraaddiittiioonnaall--ccpppp --ffaallllooww--ssiinnggllee--pprreecciissiioonn  --ffccoonndd--mmiissmmaattcchh
+           --ffllaaxx--vveeccttoorr--ccoonnvveerrssiioonnss --ffssiiggnneedd--bbiittffiieellddss  --ffssiiggnneedd--cchhaarr --ffuunnssiiggnneedd--bbiittffiieellddss  --ffuunnssiiggnneedd--cchhaarr
+
+       _C_+_+ _L_a_n_g_u_a_g_e _O_p_t_i_o_n_s
+           --ffaabbii--vveerrssiioonn==_n  --ffnnoo--aacccceessss--ccoonnttrrooll  --ffcchheecckk--nneeww --ffccoonnsstteexxpprr--ddeepptthh==_n  --ffffrriieenndd--iinnjjeeccttiioonn
+           --ffnnoo--eelliiddee--ccoonnssttrruuccttoorrss --ffnnoo--eennffoorrccee--eehh--ssppeeccss --ffffoorr--ssccooppee  --ffnnoo--ffoorr--ssccooppee  --ffnnoo--ggnnuu--kkeeyywwoorrddss
+           --ffnnoo--iimmpplliicciitt--tteemmppllaatteess --ffnnoo--iimmpplliicciitt--iinnlliinnee--tteemmppllaatteess --ffnnoo--iimmpplleemmeenntt--iinnlliinneess  --ffmmss--eexxtteennssiioonnss
+           --ffnnoo--nnoonnaannssii--bbuuiillttiinnss  --ffnnootthhrrooww--oopptt  --ffnnoo--ooppeerraattoorr--nnaammeess --ffnnoo--ooppttiioonnaall--ddiiaaggss  --ffppeerrmmiissssiivvee
+           --ffnnoo--pprreettttyy--tteemmppllaatteess --ffrreeppoo  --ffnnoo--rrttttii  --ffssttaattss  --fftteemmppllaattee--bbaacckkttrraaccee--lliimmiitt==_n --fftteemmppllaattee--ddeepptthh==_n
+           --ffnnoo--tthhrreeaaddssaaffee--ssttaattiiccss --ffuussee--ccxxaa--aatteexxiitt  --ffnnoo--wweeaakk  --nnoossttddiinncc++++ --ffnnoo--ddeeffaauulltt--iinnlliinnee
+           --ffvviissiibbiilliittyy--iinnlliinneess--hhiiddddeenn --ffvviissiibbiilliittyy--mmss--ccoommppaatt --ffeexxtt--nnuummeerriicc--lliitteerraallss --WWaabbii  --WWccoonnvveerrssiioonn--nnuullll
+           --WWccttoorr--ddttoorr--pprriivvaaccyy --WWddeelleettee--nnoonn--vviirrttuuaall--ddttoorr --WWlliitteerraall--ssuuffffiixx --WWnnaarrrroowwiinngg --WWnnooeexxcceepptt
+           --WWnnoonn--vviirrttuuaall--ddttoorr  --WWrreeoorrddeerr --WWeeffffcc++++  --WWssttrriicctt--nnuullll--sseennttiinneell --WWnnoo--nnoonn--tteemmppllaattee--ffrriieenndd
+           --WWoolldd--ssttyyllee--ccaasstt --WWoovveerrllooaaddeedd--vviirrttuuaall  --WWnnoo--ppmmff--ccoonnvveerrssiioonnss --WWssiiggnn--pprroommoo
+
+       _O_b_j_e_c_t_i_v_e_-_C _a_n_d _O_b_j_e_c_t_i_v_e_-_C_+_+ _L_a_n_g_u_a_g_e _O_p_t_i_o_n_s
+           --ffccoonnssttaanntt--ssttrriinngg--ccllaassss==_c_l_a_s_s_-_n_a_m_e --ffggnnuu--rruunnttiimmee  --ffnneexxtt--rruunnttiimmee --ffnnoo--nniill--rreecceeiivveerrss
+           --ffoobbjjcc--aabbii--vveerrssiioonn==_n --ffoobbjjcc--ccaallll--ccxxxx--ccddttoorrss --ffoobbjjcc--ddiirreecctt--ddiissppaattcchh --ffoobbjjcc--eexxcceeppttiioonnss --ffoobbjjcc--ggcc
+           --ffoobbjjcc--nniillcchheecckk --ffoobbjjcc--ssttdd==oobbjjcc11 --ffrreeppllaaccee--oobbjjcc--ccllaasssseess --ffzzeerroo--lliinnkk --ggeenn--ddeeccllss --WWaassssiiggnn--iinntteerrcceepptt
+           --WWnnoo--pprroottooccooll  --WWsseelleeccttoorr --WWssttrriicctt--sseelleeccttoorr--mmaattcchh --WWuunnddeeccllaarreedd--sseelleeccttoorr
+
+       _L_a_n_g_u_a_g_e _I_n_d_e_p_e_n_d_e_n_t _O_p_t_i_o_n_s
+           --ffmmeessssaaggee--lleennggtthh==_n --ffddiiaaggnnoossttiiccss--sshhooww--llooccaattiioonn==[oonnccee|eevveerryy--lliinnee] --ffnnoo--ddiiaaggnnoossttiiccss--sshhooww--ooppttiioonn
+           --ffnnoo--ddiiaaggnnoossttiiccss--sshhooww--ccaarreett
+
+       _W_a_r_n_i_n_g _O_p_t_i_o_n_s
+           --ffssyynnttaaxx--oonnllyy  --ffmmaaxx--eerrrroorrss==_n  --WWppeeddaannttiicc --ppeeddaannttiicc--eerrrroorrss --ww  --WWeexxttrraa  --WWaallll  --WWaaddddrreessss
+           --WWaaggggrreeggaattee--rreettuurrnn --WWaaggggrreessssiivvee--lloooopp--ooppttiimmiizzaattiioonnss --WWaarrrraayy--bboouunnddss --WWnnoo--aattttrriibbuutteess
+           --WWnnoo--bbuuiillttiinn--mmaaccrroo--rreeddeeffiinneedd --WWcc++++--ccoommppaatt --WWcc++++1111--ccoommppaatt --WWccaasstt--aalliiggnn  --WWccaasstt--qquuaall --WWcchhaarr--ssuubbssccrriippttss
+           --WWcclloobbbbeerreedd  --WWccoommmmeenntt --WWccoonnvveerrssiioonn  --WWccoovveerraaggee--mmiissmmaattcchh  --WWnnoo--ccpppp  --WWnnoo--ddeepprreeccaatteedd
+           --WWnnoo--ddeepprreeccaatteedd--ddeeccllaarraattiioonnss --WWddiissaabblleedd--ooppttiimmiizzaattiioonn --WWnnoo--ddiivv--bbyy--zzeerroo --WWddoouubbllee--pprroommoottiioonn --WWeemmppttyy--bbooddyy
+           --WWeennuumm--ccoommppaarree --WWnnoo--eennddiiff--llaabbeellss --WWeerrrroorr  --WWeerrrroorr==** --WWffaattaall--eerrrroorrss  --WWffllooaatt--eeqquuaall  --WWffoorrmmaatt  --WWffoorrmmaatt==22
+           --WWnnoo--ffoorrmmaatt--ccoonnttaaiinnss--nnuull --WWnnoo--ffoorrmmaatt--eexxttrraa--aarrggss --WWffoorrmmaatt--nnoonnlliitteerraall --WWffoorrmmaatt--sseeccuurriittyy  --WWffoorrmmaatt--yy22kk
+           --WWffrraammee--llaarrggeerr--tthhaann==_l_e_n --WWnnoo--ffrreeee--nnoonnhheeaapp--oobbjjeecctt --WWjjuummpp--mmiisssseess--iinniitt --WWiiggnnoorreedd--qquuaalliiffiieerrss --WWiimmpplliicciitt
+           --WWiimmpplliicciitt--ffuunnccttiioonn--ddeeccllaarraattiioonn  --WWiimmpplliicciitt--iinntt --WWiinniitt--sseellff  --WWiinnlliinnee --WWmmaayybbee--uunniinniittiiaalliizzeedd
+           --WWnnoo--iinntt--ttoo--ppooiinntteerr--ccaasstt --WWnnoo--iinnvvaalliidd--ooffffsseettooff --WWiinnvvaalliidd--ppcchh --WWllaarrggeerr--tthhaann==_l_e_n
+           --WWuunnssaaffee--lloooopp--ooppttiimmiizzaattiioonnss --WWllooggiiccaall--oopp --WWlloonngg--lloonngg --WWmmaaiinn --WWmmaayybbee--uunniinniittiiaalliizzeedd --WWmmiissssiinngg--bbrraacceess
+           --WWmmiissssiinngg--ffiieelldd--iinniittiiaalliizzeerrss --WWmmiissssiinngg--iinncclluuddee--ddiirrss --WWnnoo--mmuuddffllaapp --WWnnoo--mmuullttiicchhaarr  --WWnnoonnnnuullll
+           --WWnnoo--oovveerrffllooww --WWoovveerrlleennggtthh--ssttrriinnggss  --WWppaacckkeedd  --WWppaacckkeedd--bbiittffiieelldd--ccoommppaatt  --WWppaaddddeedd --WWppaarreenntthheesseess
+           --WWppeeddaannttiicc--mmss--ffoorrmmaatt --WWnnoo--ppeeddaannttiicc--mmss--ffoorrmmaatt --WWppooiinntteerr--aarriitthh  --WWnnoo--ppooiinntteerr--ttoo--iinntt--ccaasstt
+           --WWrreedduunnddaanntt--ddeeccllss  --WWnnoo--rreettuurrnn--llooccaall--aaddddrr --WWrreettuurrnn--ttyyppee  --WWsseeqquueennccee--ppooiinntt  --WWsshhaaddooww --WWssiiggnn--ccoommppaarree
+           --WWssiiggnn--ccoonnvveerrssiioonn  --WWssiizzeeooff--ppooiinntteerr--mmeemmaacccceessss --WWssttaacckk--pprrootteeccttoorr --WWssttaacckk--uussaaggee==_l_e_n --WWssttrriicctt--aalliiaassiinngg
+           --WWssttrriicctt--aalliiaassiinngg==nn  --WWssttrriicctt--oovveerrffllooww --WWssttrriicctt--oovveerrffllooww==_n
+           --WWssuuggggeesstt--aattttrriibbuuttee==[ppuurree|ccoonnsstt|nnoorreettuurrnn|ffoorrmmaatt] --WWmmiissssiinngg--ffoorrmmaatt--aattttrriibbuuttee --WWsswwiittcchh  --WWsswwiittcchh--ddeeffaauulltt
+           --WWsswwiittcchh--eennuumm --WWssyynncc--nnaanndd --WWssyysstteemm--hheeaaddeerrss  --WWttrraammppoolliinneess  --WWttrriiggrraapphhss  --WWttyyppee--lliimmiittss  --WWuunnddeeff
+           --WWuunniinniittiiaalliizzeedd  --WWuunnkknnoowwnn--pprraaggmmaass  --WWnnoo--pprraaggmmaass --WWuunnssuuffffiixxeedd--ffllooaatt--ccoonnssttaannttss  --WWuunnuusseedd
+           --WWuunnuusseedd--ffuunnccttiioonn --WWuunnuusseedd--llaabbeell  --WWuunnuusseedd--llooccaall--ttyyppeeddeeffss --WWuunnuusseedd--ppaarraammeetteerr --WWnnoo--uunnuusseedd--rreessuulltt
+           --WWuunnuusseedd--vvaalluuee  --WWuunnuusseedd--vvaarriiaabbllee --WWuunnuusseedd--bbuutt--sseett--ppaarraammeetteerr --WWuunnuusseedd--bbuutt--sseett--vvaarriiaabbllee --WWuusseelleessss--ccaasstt
+           --WWvvaarriiaaddiicc--mmaaccrrooss --WWvveeccttoorr--ooppeerraattiioonn--ppeerrffoorrmmaannccee --WWvvllaa --WWvvoollaattiillee--rreeggiisstteerr--vvaarr  --WWwwrriittee--ssttrriinnggss
+           --WWzzeerroo--aass--nnuullll--ppooiinntteerr--ccoonnssttaanntt
+
+       _C _a_n_d _O_b_j_e_c_t_i_v_e_-_C_-_o_n_l_y _W_a_r_n_i_n_g _O_p_t_i_o_n_s
+           --WWbbaadd--ffuunnccttiioonn--ccaasstt  --WWmmiissssiinngg--ddeeccllaarraattiioonnss --WWmmiissssiinngg--ppaarraammeetteerr--ttyyppee  --WWmmiissssiinngg--pprroottoottyyppeess
+           --WWnneesstteedd--eexxtteerrnnss --WWoolldd--ssttyyllee--ddeeccl
