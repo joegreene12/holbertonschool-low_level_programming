@@ -1,7 +1,9 @@
 #include "my_functions.h"
-
+/*need a for loop to iterate through alphabet*/
 void print_alphabet(void)
 {
-  print_alphabet();
-  return (0);
+  char i
+  print char(for (i =a;i<z; i++)
+	       print char(i);
+)
 }
