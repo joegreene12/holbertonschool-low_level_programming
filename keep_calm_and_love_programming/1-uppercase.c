@@ -2,11 +2,11 @@
 
 char uppercase(char c)
 {
-  if c >= 97 && c <= 122
-	   printf -32
+  if(c >= 97 && c <= 122){
+	    printf c-32;
 
     c == 97{
-      printf("%c\n", 67
+      ("%c\n", 67)
 
   return somethinghere;
-}
+	     }}
