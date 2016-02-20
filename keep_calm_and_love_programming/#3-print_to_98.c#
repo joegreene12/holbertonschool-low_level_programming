@@ -1,6 +1,5 @@
-#include<stdio.h>
-
-
+#include <stdio.h>
+int mani
 void print_to_89(int)
 
 int main() {
