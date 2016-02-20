@@ -6,7 +6,11 @@ char uppercase(char c)
 	    printf c-32;
 
     c == 97{
-      ("%c\n", 67)
+      printf("%c\n", c);
 
-  return somethinghere;
+      
+
+      
+
+      return(0); /* somethinghere*/
 	     }}
