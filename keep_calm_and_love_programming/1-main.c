@@ -15,9 +15,3 @@ int main(void)
   printf("%c\n", c);
   return (0);
 }
-ubuntu@ip-172-31-63-244:~/holbertonschool$ gcc -Wall -Werror -Wextra -pedantic 1-main.c 1-uppercase.c  -o uppercase && ./uppercase
-A
-H
-A
-{
-  ubuntu@ip-172-31-63-244:~/holbertonschool$
