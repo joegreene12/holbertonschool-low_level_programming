@@ -1,0 +1,22 @@
+#include <stdio.h>
+void triangles_in_the_term(int h, int n){
+int height;
+int space;
+ int star;
+ int ncopy;
+
+ for (ncopy = 1; ncopy <= n; ncopy ++){
+ for (height = 1; height <= h; height ++) {
+  
+  for(space = h-height; space > 0; space --){
+
+    printf(" ");
+  }
+  for(star = 1; star <= height * 2 - 1; star ++){
+
+    printf("*");
+  }
+ printf("\n");
+  }
+}
+}
