@@ -1,6 +1,6 @@
 char *concat_strings(char *dest, const char *src){
 
-  int count = 0;
+int count = 0
   int i;
 for(i=0; dest[i] != '\0'; i++)
   count ++; 
